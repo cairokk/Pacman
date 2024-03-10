@@ -6,8 +6,8 @@ public class App {
 
         int[][] matrizConfigMapa = {
                 { 1, 1, 1, 1, 1 },
+                { 1, 0, 0, 0, 1 },
                 { 0, 0, 1, 0, 0 },
-                { 1, 0, 1, 0, 1 },
                 { 1, 1, 1, 1, 1 }
         };
 
@@ -45,8 +45,8 @@ public class App {
             }
         }
 
-        Vertice pacman = mapa.obterVerticePorId("0-0");
-        Vertice fantasminha = mapa.obterVerticePorId("3-4");
+        Vertice pacman = mapa.obterVerticePorId("0-1");
+        Vertice fantasminha = mapa.obterVerticePorId("3-0");
 
         Imprimir imprimir = new Imprimir();
 
