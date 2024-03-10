@@ -4,7 +4,7 @@ public class VerticeBusca {
     private int distanciaOrigem;
     private String estado;
 
-    public VerticeBusca(Vertice vertice){
+    public VerticeBusca(Vertice vertice) {
         this.vertice = vertice;
         pai = null;
         distanciaOrigem = -1;
