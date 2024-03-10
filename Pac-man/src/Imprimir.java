@@ -1,5 +1,5 @@
 public class Imprimir {
-    public static void printPacMan() {
+    public void printPacMan() {
         System.out.println("  _ __   __ _  ___ _ __ ___   __ _ _ __  ");
         System.out.println(" | '_ \\ / _` |/ __| '_ ` _ \\ / _` | '_ \\ ");
         System.out.println(" | |_) | (_| | (__| | | | | | (_| | | | |");
@@ -22,7 +22,7 @@ public class Imprimir {
         System.out.println();
     }
 
-    public static void printMatrixWitchPacAndGhost(int[][] matrizConfigMapa, String pacMan, String ghost) {
+    public void printMatrixWitchPacAndGhost(int[][] matrizConfigMapa, String pacMan, String ghost) {
 
         String[] pacManPos = pacMan.split("-");
         String[] ghostPos = ghost.split("-");
