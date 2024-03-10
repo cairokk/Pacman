@@ -5,9 +5,10 @@ public class App {
         Grafo mapa = new Grafo();
 
         int[][] matrizConfigMapa = {
-                { 1, 1, 1, 1 },
-                { 1, 0, 0, 1 },
-                { 1, 1, 1, 1 }
+                { 1, 1, 1, 1, 1 },
+                { 0, 0, 1, 0, 0 },
+                { 1, 0, 1, 0, 1 },
+                { 1, 1, 1, 1, 1 }
         };
 
         for (int i = 0; i < matrizConfigMapa.length; i++) {
@@ -44,15 +45,15 @@ public class App {
             }
         }
 
-        Vertice verticeFonte = mapa.obterVerticePorId("2-0");
-        Vertice verticeDestino = mapa.obterVerticePorId("2-3");
+        Vertice pacman = mapa.obterVerticePorId("0-0");
+        Vertice fantasminha = mapa.obterVerticePorId("3-4");
 
         Imprimir imprimir = new Imprimir();
-        
+
         imprimir.printPacMan();
 
-        imprimir.printMatrixWitchPacAndGhost(matrizConfigMapa, verticeFonte.getId(), verticeDestino.getId());
+        imprimir.printMatrixWitchPacAndGhost(matrizConfigMapa, pacman.getId(), fantasminha.getId());
 
-        BFS.menorDistanciaEntreVertices(mapa, verticeFonte, verticeDestino);
+        BFS.menorDistanciaEntreVertices(mapa, pacman, fantasminha, matrizConfigMapa);
     }
 }

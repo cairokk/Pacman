@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Imprimir {
     public void printPacMan() {
         System.out.println("  _ __   __ _  ___ _ __ ___   __ _ _ __  ");
@@ -34,6 +36,36 @@ public class Imprimir {
                         System.out.print("😃");
                     } else if(i == Integer.parseInt(ghostPos[0]) && j == Integer.parseInt(ghostPos[1])) {
                         System.out.print("👻");
+                    } else {
+                        System.out.print("⚪️");
+                    }
+                } else {
+                    System.out.print("🟦");
+                }
+            }
+            System.out.println();
+        }
+
+        System.out.println();
+    }
+
+    public void printMatrixWitchPacAndGhostPath(int[][] matrizConfigMapa, String pacMan, String ghost, List<Vertice> path) {
+
+        String[] pacManPos = pacMan.split("-");
+        String[] ghostPos = ghost.split("-");
+
+        Grafo mapa = new Grafo();
+        mapa.setVertices(path);
+
+        for (int i = 0; i < matrizConfigMapa.length; i++) {
+            for (int j = 0; j < matrizConfigMapa[0].length; j++) {                
+                if (matrizConfigMapa[i][j] == 1) {
+                    if(i == Integer.parseInt(pacManPos[0]) && j == Integer.parseInt(pacManPos[1])){
+                        System.out.print("😃");
+                    } else if(i == Integer.parseInt(ghostPos[0]) && j == Integer.parseInt(ghostPos[1])) {
+                        System.out.print("👻");
+                    }else if(mapa.getVertices().contains(mapa.obterVerticePorId(i + "-" + j))){
+                        System.out.print("🔴");
                     } else {
                         System.out.print("⚪️");
                     }

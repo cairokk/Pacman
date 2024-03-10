@@ -25,7 +25,7 @@ public class BFS {
         }
     }
 
-    public static void menorDistanciaEntreVertices(Grafo grafo, Vertice verticeFonte, Vertice verticeDestino) {
+    public static void menorDistanciaEntreVertices(Grafo grafo, Vertice verticeFonte, Vertice verticeDestino, int[][] matrizConfigMapa) {
         List<Vertice> fila = new LinkedList<>();
         List<Vertice> filaMenorCaminho = new LinkedList<>();
 
@@ -47,17 +47,32 @@ public class BFS {
         }
 
         Vertice v = verticeDestino;
-        while (v != null) {
-            filaMenorCaminho.add(v);
-            v = v.getPai();
+
+        if (v.getPai() != null) {
+            while (v != null) {
+                filaMenorCaminho.add(v);
+                v = v.getPai();
+            }
+
+            System.out.println("Distância entre " + verticeFonte.getId() + " e " + verticeDestino.getId() + ": "
+                    + grafo.obterVerticePorId(verticeDestino.getId()).getTamanho());
+
+            Imprimir imprimir = new Imprimir();
+
+            
+            System.out.println("Menor caminho entre " + verticeFonte.getId() + " e " + verticeDestino.getId() + ":");
+            
+            for (int i = filaMenorCaminho.size() - 1; i > 0; i--) {
+                System.out.print(filaMenorCaminho.get(i).getId() + " -> ");
+            }
+            System.out.println(filaMenorCaminho.get(0).getId());
+
+            System.out.println();
+
+            imprimir.printMatrixWitchPacAndGhostPath(matrizConfigMapa, verticeFonte.getId(), verticeDestino.getId(), filaMenorCaminho);
+        } else {
+            System.out.println("Não existe caminho entre " + verticeFonte.getId() + " e " + verticeDestino.getId());
         }
 
-        System.out.println("Distância entre " + verticeFonte.getId() + " e " + verticeDestino.getId() + ": " + grafo.obterVerticePorId(verticeDestino.getId()).getTamanho());
-        System.out.println("Menor caminho entre " + verticeFonte.getId() + " e " + verticeDestino.getId() + ":");
-
-        for (int i = filaMenorCaminho.size() - 1; i > 0; i--){
-            System.out.print(filaMenorCaminho.get(i).getId() + " -> ");
-        }
-        System.out.println(filaMenorCaminho.get(0).getId());
     }
 }

@@ -24,6 +24,10 @@ public class Grafo {
         return this.vertices;
     }
 
+    public void setVertices(List<Vertice> vertices) {
+        this.vertices = vertices;
+    }
+
     public Vertice obterVerticePorId(String id) {
         for (Vertice v : this.vertices) {
             if (v.getId().equals(id)) {
