@@ -1,57 +1,55 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Vertice{
+public class Vertice {
     private String id;
     private List<Vertice> vizinhos;
     private Vertice pai;
     private String estado;
     private int distancia;
 
-    public Vertice(String id){
+    public Vertice(String id) {
         this.id = id;
         this.vizinhos = new ArrayList<>();
         this.pai = null;
         this.estado = "branco";
         this.distancia = -1;
-        };
+    };
 
-
-    public void adicionar_vizinho(Vertice novoVizinho){
+    public void adicionar_vizinho(Vertice novoVizinho) {
         this.vizinhos.add(novoVizinho);
     }
 
-    public String getId(){
+    public String getId() {
         return id;
     }
 
-    public List<Vertice> getVizinhos(){
+    public List<Vertice> getVizinhos() {
         return vizinhos;
     }
 
-    public Vertice getPai(){
+    public Vertice getPai() {
         return pai;
     }
 
-    public void setPai(Vertice pai){
+    public void setPai(Vertice pai) {
         this.pai = pai;
     }
 
-    public int getTamanho(){
+    public int getTamanho() {
         return distancia;
     }
 
-    public void setTamanho(int tamanho){
+    public void setTamanho(int tamanho) {
         this.distancia = tamanho;
     }
 
-    public String getEstado(){
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado){
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 
-    }
-    
+}
