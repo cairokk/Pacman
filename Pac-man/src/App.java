@@ -44,17 +44,15 @@ public class App {
             }
         }
 
-        Vertice verticeFonte = mapa.obterVerticePorId("0-0");
-        Vertice verticeDestino = mapa.obterVerticePorId("1-3");
+        Vertice verticeFonte = mapa.obterVerticePorId("2-0");
+        Vertice verticeDestino = mapa.obterVerticePorId("2-3");
 
-        ImprimitTitulo imprimitTitulo = new ImprimitTitulo();
+        Imprimir imprimir = new Imprimir();
+        
+        imprimir.printPacMan();
 
-        // BFS.breadthFirstSearch(mapa, verticeFonte);
-
-        imprimitTitulo.printPacMan();
+        imprimir.printMatrixWitchPacAndGhost(matrizConfigMapa, verticeFonte.getId(), verticeDestino.getId());
 
         BFS.menorDistanciaEntreVertices(mapa, verticeFonte, verticeDestino);
-
-
     }
 }

@@ -10,6 +10,7 @@ public class BFS {
         Queue<Vertice> fila = new LinkedList<>();
 
         grafo.obterVerticePorId(verticeFonte.getId()).setEstado("cinza");
+        grafo.obterVerticePorId(verticeFonte.getId()).setTamanho(0);
         fila.add(verticeFonte);
 
         while (!fila.isEmpty()) {
@@ -19,6 +20,7 @@ public class BFS {
             for (Vertice vizinho : v.getVizinhos()) {
                 if (vizinho.getEstado().equals("branco")) {
                     grafo.obterVerticePorId(vizinho.getId()).setEstado("cinza");
+                    grafo.obterVerticePorId(vizinho.getId()).setTamanho(v.getTamanho() + 1);
                     fila.add(vizinho);
                 }
             }
@@ -35,7 +37,6 @@ public class BFS {
 
         while (!fila.isEmpty()) {
             Vertice v = fila.remove(0);
-            // System.out.println(v.getId() + " visitado");
 
             for (Vertice vizinho : v.getVizinhos()) {
                 if (vizinho.getEstado().equals("branco")) {
