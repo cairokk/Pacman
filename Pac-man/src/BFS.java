@@ -65,11 +65,11 @@ public class BFS {
 
             System.out.println("Menor caminho entre " + verticeFonte.getId() + " e " + verticeDestino.getId() + ":");
 
-            for (int i = filaMenorCaminho.size() - 1; i > 0; i--) {
+            for(int i = 0; i < filaMenorCaminho.size()-1; i++) {
                 System.out.print(filaMenorCaminho.get(i).getId() + " -> ");
             }
 
-            System.out.println(filaMenorCaminho.get(0).getId());
+            System.out.println(filaMenorCaminho.get(filaMenorCaminho.size()-1).getId());
 
             System.out.println();
 
