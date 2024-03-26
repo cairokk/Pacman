@@ -13,15 +13,17 @@ public class BFS {
 
         while (!fila.isEmpty()) {
             Vertice v = fila.poll();
-            System.out.println(v.getId() + " visitado");
-
             for (Vertice vizinho : v.getVizinhos()) {
                 if (vizinho.getEstado().equals("branco")) {
                     grafo.obterVerticePorId(vizinho.getId()).setEstado("cinza");
                     grafo.obterVerticePorId(vizinho.getId()).setTamanho(v.getTamanho() + 1);
+                    grafo.obterVerticePorId(vizinho.getId()).setPai(v);
+                    System.out.println("pai do vertice: " + vizinho.getId() + " é o vercice:  " + v.getId());
+
                     fila.add(vizinho);
                 }
             }
+            grafo.obterVerticePorId(v.getId()).setEstado("preto");
         }
     }
 
@@ -33,6 +35,7 @@ public class BFS {
 
             grafo.obterVerticePorId(verticeFonte.getId()).setEstado("cinza");
             grafo.obterVerticePorId(verticeFonte.getId()).setTamanho(0);
+            
             fila.add(verticeFonte);
 
             while (!fila.isEmpty()) {
